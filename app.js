@@ -13,10 +13,17 @@ async function agent() {
   const context = await browser.newContext()
   const page = await context.newPage()
   await page.goto(PAGE + ITEM)
-  const values = await page.textContent(`[class="${CLASS_ELEMENT}"]`)
-  await page.waitForTimeout(1000)
+  await page.locator('span').filter({ hasText: 'Usado' }).first().click()
+  await page.waitForTimeout(100)
+  const values = await page.locator(`.${CLASS_ELEMENT}`).allInnerTexts()
+  await page.waitForTimeout(100)
   await browser.close()
-  console.log(values)
+  const sortValues = values.sort((a, b) => Number(a) - Number(b))
+  const filterValues = sortValues.slice(sortValues.length / 2, sortValues.length)
+  const readValues = filterValues.map(element => {
+    return '$' + element.concat('\n')
+  })
+  fs.writeFile('./results.txt', readValues)
 }
 
 agent()
