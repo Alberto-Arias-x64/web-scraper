@@ -16,6 +16,7 @@ async function agent() {
   await page.locator('span').filter({ hasText: 'Usado' }).first().click()
   await page.waitForTimeout(100)
   const values = await page.locator(`.${CLASS_ELEMENT}`).allInnerTexts()
+  await page.screenshot({ path: 'screenshot.png' })
   await page.waitForTimeout(100)
   await browser.close()
   const transformValues = values.map(e => e.replace('.', ''))

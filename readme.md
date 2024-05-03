@@ -9,7 +9,7 @@ Este proyecto utiliza la biblioteca Playwright para scrapear datos de una págin
 - Node.js
 - Playwright
 
-## DEV
+## DEV:
 
 ### Clonar el repositorio
 
@@ -24,7 +24,7 @@ npm install
 npx playwright install
 ```
 
-## Config
+## Configuracion:
 
 Se recomienda solo modificar la propuedad ITEM para buscar elementos usados en la pagina de mercadolibre
 
