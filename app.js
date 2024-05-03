@@ -20,7 +20,6 @@ async function agent() {
   await browser.close()
   const transformValues = values.map(e => e.replace('.', ''))
   const transformValues2 = transformValues.map(e => Number(e.replace('.', '')))
-  // @ts-ignore
   const sortValues = transformValues2.sort((a, b) => a - b)
   const filterValues = sortValues.slice(sortValues.length / 2, sortValues.length)
   const readValues = filterValues.map(e => '$' + e + '\n')
