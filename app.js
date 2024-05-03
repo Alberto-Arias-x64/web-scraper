@@ -18,11 +18,12 @@ async function agent() {
   const values = await page.locator(`.${CLASS_ELEMENT}`).allInnerTexts()
   await page.waitForTimeout(100)
   await browser.close()
-  const sortValues = values.sort((a, b) => Number(a) - Number(b))
+  const transformValues = values.map(e => e.replace('.', ''))
+  const transformValues2 = transformValues.map(e => Number(e.replace('.', '')))
+  // @ts-ignore
+  const sortValues = transformValues2.sort((a, b) => a - b)
   const filterValues = sortValues.slice(sortValues.length / 2, sortValues.length)
-  const readValues = filterValues.map(element => {
-    return '$' + element.concat('\n')
-  })
+  const readValues = filterValues.map(e => '$' + e + '\n')
   fs.writeFile('./results.txt', readValues)
 }
 
