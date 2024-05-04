@@ -2,7 +2,7 @@
 
 ## Descripción del proyecto:
 
-Este proyecto utiliza la biblioteca Playwright para scrapear datos de una página web (en este caso esta enfocado en Mercado libre Usados). Playwright es una herramienta de automatización web que permite controlar navegadores web como Chrome, Firefox y Chromium.
+Este proyecto utiliza la biblioteca Playwright para extraer datos de una página web en este caso esta enfocado en Mercado libre Colombia en su sección Usados.
 
 ## Requisitos:
 
@@ -26,7 +26,7 @@ npx playwright install
 
 ## Configuracion:
 
-Se recomienda solo modificar la propuedad ITEM para buscar elementos usados en la pagina de mercadolibre
+Se recomienda solo modificar la propiedad ITEM para buscar elementos usados en la pagina de mercado Libre
 
 - PAGE=https://listado.mercadolibre.com.co/
 - ITEM=rx-6500
